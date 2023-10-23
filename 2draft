@@ -1,0 +1,15 @@
+
+  #additing item
+def add_item(self, item):
+      self.cart_items.append(item)
+
+  #removing item
+def remove_item(self, item_name):
+      found = False
+      for item in self.cart_items:
+          if item.name == item_name:
+              self.cart_items.remove(item)
+              found = True
+              break
+      if not found:
+          print("Item not found in cart. Nothing removed
