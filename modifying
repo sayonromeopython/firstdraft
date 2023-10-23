@@ -1,0 +1,16 @@
+
+ #modifying items
+def modify_item(self, item):
+      found = False
+      for cart_item in self.cart_items:
+          if cart_item.name == item.name:
+              if item.price != 0.0:
+                  cart_item.price = item.price
+              if item.quantity != 0:
+                  cart_item.quantity = item.quantity
+              if item.description != "none":
+                  cart_item.description = item.description
+              found = True
+              break
+      if not found:
+          print("Item not found in cart. Nothing modified.")
