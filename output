@@ -1,0 +1,39 @@
+# outputting shopping cart
+def output_shopping_cart(cart):
+  print("OUTPUT SHOPPING CART")
+  cart.print_total()
+
+def output_item_descriptions(cart):
+  print("OUTPUT ITEMS' DESCRIPTIONS")
+  cart.print_descriptions()
+
+if __name__ == "__main__":
+  cart = ShoppingCart("Romeo Sayon", "February 1, 2020")
+
+  while True:
+      print_menu(cart)
+      choice = input("Choose an option: ")
+
+      if choice == "a":
+          item = ItemToPurchase(input("Enter the item name: "),
+                                float(input("Enter the item price: ")),
+                                int(input("Enter the item quantity: ")),
+                                input("Enter the item description: "))
+          cart.add_item(item)
+      elif choice == "r":
+          item_name = input("Enter the item name to remove: ")
+          cart.remove_item(item_name)
+      elif choice == "c":
+          item = ItemToPurchase(input("Enter the item name: "),
+                                float(input("Enter the new item price (or 0 to keep the current price): ")),
+                                int(input("Enter the new item quantity (or 0 to keep the current quantity): ")),
+                                input("Enter the new item description (or 'none' to keep the current description): "))
+          cart.modify_item(item)
+      elif choice == "i":
+          output_item_descriptions(cart)
+      elif choice == "o":
+          output_shopping_cart(cart)
+      elif choice == "q":
+          break
+      else:
+          print("Invalid option. Please try again.")
